@@ -69,7 +69,9 @@ h1,
 h2,
 h3,
 p {
-  overflow-wrap: anywhere;
+  hyphens: none;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 h1,
