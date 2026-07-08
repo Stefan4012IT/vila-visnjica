@@ -1484,7 +1484,7 @@ p {
 
   .mobile-nav {
     position: fixed;
-    z-index: 300;
+    z-index: 1000;
     top: 14px;
     right: 14px;
     bottom: auto;
@@ -1533,6 +1533,7 @@ p {
 
   .mobile-nav__menu {
     position: absolute;
+    z-index: 1001;
     top: calc(100% + 10px);
     right: 0;
     display: grid;
