@@ -85,7 +85,7 @@ export default function Home() {
       <header id="pocetna" className="hero-header">
         <img className="hero-header__bg" src={asset("/images/visnjicaheader_background.png")} alt="" />
         <div className="hero-logo-wrap">
-          <img src={asset("/images/logo_vila_visnjica_2.png")} alt="Vila Višnjica" />
+          <img src={asset("/images/logo_vila_visnjica_3.png")} alt="Vila Višnjica" />
         </div>
         <nav className="floating-nav" aria-label="Glavna navigacija">
           <a href="#pocetna">Početna</a>
