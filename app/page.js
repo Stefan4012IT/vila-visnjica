@@ -175,7 +175,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section family">
+      <section
+        className="section family"
+        style={{ "--family-bg": `url("${asset("/images/zaDeteiPorodicu_001.png")}")` }}
+      >
         <div className="family__content">
           <p className="script-label">Za dete i porodicu</p>
           <h2>Roditelj zna da je dete viđeno, sigurno i podržano.</h2>
