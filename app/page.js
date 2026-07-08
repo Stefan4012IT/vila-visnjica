@@ -1,3 +1,5 @@
+import SideContact from "./SideContact";
+
 const Icon = ({ type }) => {
   const icons = {
     leaf: (
@@ -88,19 +90,82 @@ const asset = (path) => `${process.env.NEXT_PUBLIC_BASE_PATH || ""}${path}`;
 export default function Home() {
   return (
     <main className="site-shell">
+      <div className="site-decor" aria-hidden="true">
+        <svg className="site-vine site-vine--desktop" viewBox="0 0 1200 1800" preserveAspectRatio="none">
+          <path d="M70 220 C260 360 120 560 340 700 S720 760 620 980 760 1280 1080 1380" />
+          <circle className="vine-fruit vine-fruit--rose" cx="250" cy="372" r="18" />
+          <circle className="vine-fruit vine-fruit--sage" cx="520" cy="745" r="15" />
+          <path className="vine-star" d="M782 1090l10 22 24 3-18 16 5 24-21-12-21 12 5-24-18-16 24-3z" />
+          <circle className="vine-fruit vine-fruit--sand" cx="944" cy="1338" r="17" />
+          <g className="vine-flower vine-flower--rose" transform="translate(116 214)">
+            <circle cx="0" cy="-14" r="10" />
+            <circle cx="14" cy="0" r="10" />
+            <circle cx="0" cy="14" r="10" />
+            <circle cx="-14" cy="0" r="10" />
+            <circle className="vine-flower__center" cx="0" cy="0" r="7" />
+          </g>
+          <g className="vine-flower vine-flower--teal" transform="translate(676 894)">
+            <circle cx="0" cy="-12" r="9" />
+            <circle cx="12" cy="0" r="9" />
+            <circle cx="0" cy="12" r="9" />
+            <circle cx="-12" cy="0" r="9" />
+            <circle className="vine-flower__center" cx="0" cy="0" r="6" />
+          </g>
+          <circle className="vine-ball vine-ball--soft" cx="1090" cy="1188" r="26" />
+          <circle className="vine-ball vine-ball--rose" cx="154" cy="1510" r="22" />
+        </svg>
+        <svg className="site-vine site-vine--mobile" viewBox="0 0 220 1800" preserveAspectRatio="none">
+          <path d="M112 40 C54 210 166 360 102 520 S70 820 128 1010 150 1330 92 1710" />
+          <circle className="vine-fruit vine-fruit--rose" cx="82" cy="344" r="13" />
+          <circle className="vine-fruit vine-fruit--sage" cx="132" cy="770" r="12" />
+          <path className="vine-star" d="M83 1212l8 17 19 2-14 13 4 19-17-9-17 9 4-19-14-13 19-2z" />
+          <g className="vine-flower vine-flower--rose" transform="translate(138 188)">
+            <circle cx="0" cy="-9" r="7" />
+            <circle cx="9" cy="0" r="7" />
+            <circle cx="0" cy="9" r="7" />
+            <circle cx="-9" cy="0" r="7" />
+            <circle className="vine-flower__center" cx="0" cy="0" r="5" />
+          </g>
+          <circle className="vine-ball vine-ball--soft" cx="72" cy="1008" r="18" />
+        </svg>
+        <div className="decor-tree">
+          <span className="decor-tree__crown"></span>
+          <span className="decor-tree__trunk"></span>
+        </div>
+        <div className="decor-birdhouse">
+          <span className="decor-birdhouse__roof"></span>
+          <span className="decor-birdhouse__body"></span>
+          <span className="decor-birdhouse__bird"></span>
+        </div>
+      </div>
+      <SideContact logoSrc={asset("/images/logo_sc.png")} />
+
       <header id="pocetna" className="hero-header">
         <img className="hero-header__bg" src={asset("/images/visnjicaheader_background.png")} alt="" />
         <div className="hero-logo-wrap">
           <img src={asset("/images/logo_vila_visnjica_3.png")} alt="Vila Višnjica" />
         </div>
         <nav className="floating-nav" aria-label="Glavna navigacija">
-          <a href="#pocetna">Početna</a>
           <a href="#koncept">Koncept</a>
           <a href="#program">Program</a>
           <a href="#prostor">Prostor</a>
           <a href="#adaptacija">Adaptacija</a>
           <a href="#kontakt">Kontakt</a>
         </nav>
+        <details className="mobile-nav">
+          <summary aria-label="Otvorite meni">
+            <span></span>
+            <span></span>
+            <span></span>
+          </summary>
+          <nav className="mobile-nav__menu" aria-label="Glavna navigacija">
+            <a href="#koncept">Koncept</a>
+            <a href="#program">Program</a>
+            <a href="#prostor">Prostor</a>
+            <a href="#adaptacija">Adaptacija</a>
+            <a href="#kontakt">Kontakt</a>
+          </nav>
+        </details>
       </header>
 
       <section id="koncept" className="section afterHero">
@@ -118,7 +183,7 @@ export default function Home() {
           </div>
           <div className="hero__actions">
             <a className="button button--primary" href="#kontakt">Upis i obilazak</a>
-            <a className="button button--light" href="#program">Naš program</a>
+            <a className="button button--light" href="tel:+381600000000">Pozovite nas</a>
           </div>
         </div>
         <div className="afterHero__photo frame frame--tilt-left">
@@ -272,11 +337,19 @@ export default function Home() {
       </section>
 
       <footer className="footer">
-        <div>
+        <div className="footer__brand">
           <strong>Vila Višnjica</strong>
-          <span>Predškolska ustanova u Višnjičkoj Banji</span>
+          <span>Ekološki vrtić u Višnjičkoj Banji</span>
         </div>
-        <a href="#pocetna">Nazad na vrh</a>
+        <div className="footer__contact" aria-label="Kontakt podaci">
+          <a href="tel:+381600000000">+381 60 000 0000</a>
+          <a href="mailto:info@vilavisnjica.rs">info@vilavisnjica.rs</a>
+          <span>Višnjička Banja, Beograd</span>
+        </div>
+        <div className="footer__social" aria-label="Društvene mreže">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Facebook">FB</a>
+        </div>
       </footer>
     </main>
   );
