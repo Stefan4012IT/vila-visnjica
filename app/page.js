@@ -47,26 +47,32 @@ const heroPoints = ["Priroda", "Sigurnost", "Razvoj"];
 const services = [
   {
     icon: "leaf",
-    title: "Eko koncept",
-    text: "Priroda je deo svakodnevnog učenja kroz igru, istraživanje i male odgovorne navike.",
+    title: "Ekološki koncept",
+    text: "Priroda je svakodnevna praksa kroz istraživanje, boravak napolju i razvoj odgovornih navika.",
   },
   {
     icon: "heart",
-    title: "Mali broj dece",
-    text: "Mirniji ritam i više prostora da svako dete bude viđeno, podržano i ohrabreno.",
+    title: "Individualni pristup",
+    text: "Manje grupe daju prostor da svako dete bude viđeno, negovano i podržano u svom ritmu.",
   },
   {
     icon: "sun",
-    title: "Zdravo odrastanje",
-    text: "Boravak napolju, zdrava ishrana, kretanje, stvaranje i sigurna rutina tokom dana.",
+    title: "Zdrav razvoj",
+    text: "Zdrava ishrana, kretanje, sigurnost i kreativno stvaranje grade samostalno i srećno dete.",
   },
 ];
 
 const activities = [
-  { icon: "blocks", title: "Projektno učenje", text: "Deca istražuju temu kroz pitanja, igru i stvarne situacije." },
-  { icon: "leaf", title: "Ekološke radionice", text: "Sadnja, posmatranje prirode i briga o prostoru oko nas." },
-  { icon: "pencil", title: "Kreativno stvaranje", text: "Likovne, muzičke i pokretne aktivnosti u redovnom programu." },
-  { icon: "sun", title: "Sport i boravak napolju", text: "Školica sporta, dvorište i svakodnevna igra u zelenilu." },
+  { icon: "blocks", title: "Projektno učenje", text: "Deca uče kroz pitanja, igru, istraživanje i stvarne životne situacije." },
+  { icon: "leaf", title: "Ekološke radionice", text: "Svakodnevno upoznavanje prirode, zelenila i održivih životnih navika." },
+  { icon: "pencil", title: "Kreativne radionice", text: "Umetnost, muzika, balet i stvaranje podstiču autentičnost deteta." },
+  { icon: "sun", title: "Sport i kretanje", text: "Školica sporta, boravak napolju i igra podržavaju zdrav razvoj." },
+];
+
+const familyPoints = [
+  "Postepena adaptacija uz roditelje",
+  "Dnevne informacije, fotografije i razgovori",
+  "Jasna rutina, stručan tim i malo dete u fokusu",
 ];
 
 const dayFlow = [
@@ -99,11 +105,11 @@ export default function Home() {
 
       <section id="koncept" className="section afterHero">
         <div className="afterHero__intro">
-          <p className="script-label">Welcome to</p>
+          <p className="script-label">Dobro došli</p>
           <h1 className="no-break-title">Vila Višnjica</h1>
           <p className="hero__lead">
             Ekološki vrtić u Višnjičkoj Banji u kome dete raste kroz prirodu,
-            igru, istraživanje i siguran odnos sa odraslima.
+            igru, istraživanje i holistički pristup razvoju.
           </p>
           <div className="hero-points" aria-label="Tri vrednosti vrtića">
             {heroPoints.map((point) => (
@@ -119,8 +125,8 @@ export default function Home() {
           <img src={asset("/images/afterhero-child.jpg")} alt="Dete u toplom prostoru vrtića gleda u kameru" />
         </div>
         <div className="afterHero__heading">
-          <p className="script-label">What makes us different</p>
-          <h2>Priroda nije dodatak programu. Ona je deo svakog dana.</h2>
+          <p className="script-label">Po čemu smo drugačiji</p>
+          <h2>Priroda nije povremena aktivnost. Ona je deo svakog dana.</h2>
         </div>
         <div className="service-grid">
           {services.map((service) => (
@@ -138,25 +144,25 @@ export default function Home() {
           <img src={asset("/images/garden-workshop.jpg")} alt="Deca sade začinsko bilje u bašti" />
         </div>
         <div className="news__content">
-          <p className="script-label">News from the centre</p>
-          <h2>Učimo kroz iskustvo koje dete može da dodirne.</h2>
+          <p className="script-label">Iz našeg dana</p>
+          <h2>Učimo kroz iskustvo, igru i istraživanje.</h2>
           <p>
-            Svakodnevno povezivanje sa prirodom, ekološke radionice, kretanje,
-            zdrave navike i individualni pristup grade samostalno, radoznalo i
-            kreativno dete.
+            Program je zasnovan na projektnom učenju, boravku u prirodi i
+            razvoju životnih veština. Dete posmatramo kao jedinstveno,
+            autentično i puno potencijala.
           </p>
           <div className="mini-list">
             <span><Icon type="leaf" /> Svakodnevni boravak napolju</span>
-            <span><Icon type="heart" /> Individualna pažnja</span>
-            <span><Icon type="chat" /> Otvorena komunikacija sa roditeljima</span>
+            <span><Icon type="heart" /> Stručan i topao pristup detetu</span>
+            <span><Icon type="chat" /> Partnerstvo sa roditeljima</span>
           </div>
         </div>
       </section>
 
       <section id="program" className="section programs">
         <div className="section-heading section-heading--center">
-          <p className="script-label">Our programs</p>
-          <h2>Aktivnosti koje prate prirodan ritam deteta.</h2>
+          <p className="script-label">Naš program</p>
+          <h2>Program koji razvija radoznalost, samostalnost i kreativnost.</h2>
         </div>
         <div className="program-grid">
           {activities.map((activity) => (
@@ -169,13 +175,30 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section family">
+        <div className="family__content">
+          <p className="script-label">Za dete i porodicu</p>
+          <h2>Roditelj zna da je dete viđeno, sigurno i podržano.</h2>
+          <p>
+            Vila Višnjica gradi partnerstvo sa porodicom kroz otvorenu
+            komunikaciju, jasne informacije i atmosferu poverenja. Roditelj
+            dobija sigurnost, a dete prostor da raste u skladu sa sobom.
+          </p>
+          <div className="mini-list">
+            {familyPoints.map((point) => (
+              <span key={point}><Icon type="heart" /> {point}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="prostor" className="section classroom">
         <div className="classroom__content">
-          <p className="script-label">Our happy rooms</p>
+          <p className="script-label">Prostor za rast</p>
           <h2>Topao, svetao prostor sa prirodnim materijalima.</h2>
           <p>
-            Prostor je osmišljen da bude bezbedan, miran i inspirativan: drvo,
-            biljke, zeleno dvorište, mesta za igru, odmor, istraživanje i stvaranje.
+            Vrtić je bezbedan, inspirativan i okružen zelenilom. Svaki deo
+            prostora podržava igru, odmor, istraživanje i stvaranje.
           </p>
           <ol className="day-flow">
             {dayFlow.map((item) => (
@@ -190,14 +213,14 @@ export default function Home() {
 
       <section id="adaptacija" className="section enrolment">
         <div className="enrolment__heading">
-          <p className="script-label">Enrolment</p>
-          <h2>Prvi dani se grade polako, zajedno sa porodicom.</h2>
+          <p className="script-label">Prvi dani</p>
+          <h2>Adaptacija je postepena, nežna i prilagođena detetu.</h2>
         </div>
         <div className="enrolment__body">
           <p>
-            Adaptacija je postepena i individualno prilagođena svakom detetu.
-            Roditelji dobijaju dnevne informacije kroz aplikaciju, Viber grupu,
-            fotografije i redovne razgovore sa vaspitačima.
+            Roditelji su aktivno uključeni u prve dane. O detetovom danu,
+            napretku i aktivnostima informišemo ih putem aplikacije, Viber
+            grupe, fotografija, dnevnih izveštaja i redovnih razgovora.
           </p>
           <a className="button button--primary" href="#kontakt">Razgovarajte sa nama</a>
         </div>
@@ -205,10 +228,10 @@ export default function Home() {
 
       <section className="section testimonials">
         <div className="testimonial-card">
-          <p className="script-label">Parents say</p>
+          <p className="script-label">Poruka roditeljima</p>
           <blockquote>
-            “Želimo da roditelji odmah osete poverenje, pristupačnost,
-            otvorenost i sigurnost.”
+            “Dete uči kroz istraživanje, igru i iskustvo, u okruženju koje
+            neguje sigurnost, ljubav i razvoj.”
           </blockquote>
         </div>
         <div className="testimonial-card testimonial-card--teal">
@@ -220,12 +243,12 @@ export default function Home() {
 
       <section id="kontakt" className="section contact">
         <div className="contact__content">
-          <p className="script-label">Get in touch</p>
+          <p className="script-label">Dođite da se upoznamo</p>
           <h2>Zakažite obilazak Vile Višnjice.</h2>
           <p>
+            Najbolji prvi korak je obilazak vrtića, upoznavanje tima i prostora.
             Upite primamo putem telefona, Vibera, WhatsApp-a, Instagrama,
-            e-maila i formulara. Najbolji prvi korak je lični obilazak prostora
-            i upoznavanje tima.
+            e-maila i formulara.
           </p>
         </div>
         <form className="contact-form">
